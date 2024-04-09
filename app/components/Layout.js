@@ -6,7 +6,7 @@ import Header from "../parts/Header";
 
 
 const Layout = ({ children }) => {
-  const { data, isLoading, error, fetchData } = useApiStore();
+  const { isLoading, error, fetchData } = useApiStore();
 
 	useEffect(() => {
 	  // Fetch data when component mounts
