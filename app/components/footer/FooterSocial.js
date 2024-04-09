@@ -1,11 +1,15 @@
-const FooterSocial = ({  }) => {
+const FooterSocial = ({ social_media }) => {
     return (
         <div class="col-md-3">
             <h1>Social</h1>
-            <div class="d-flex justify-content-start">
-                <div class="pr-3"><a href="#"><i class="fab fa-skype"></i></a></div>
-                <div class="pr-3"><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
-                <div class="pr-3"><a href="#"><i class="fab fa-google-plus-g"></i></a></div>
+            <div class="d-flex justify-content-between">
+                {social_media && social_media.map((social, index) => (
+                     <div className="pr-3">
+                        <a href="#">
+                            <i className={social.social_icon}></i>
+                        </a>
+                    </div>
+                ))}
             </div>
         </div>
     );

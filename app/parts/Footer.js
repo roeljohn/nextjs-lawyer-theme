@@ -15,19 +15,22 @@ const Footer = () => {
 	const { data, isLoading, error, fetchData } = useApiStore();
 	const footer_about = data?.acf?.footer_about;
 	const address = data?.acf?.address;
+	const social_media = data?.acf?.social_media;
+	const copyright = data?.acf?.copyright;
+	const footer_logo = data?.acf?.footer_logo;
     return (
         <div class="container-fluid p-4-10 footer">
 		<div class="container">
 			<div class="row  pb-5">
-				<FooterDescriptionLogo footer_about={footer_about} />
+				<FooterDescriptionLogo footer_about={footer_about} footer_logo={footer_logo} />
 				<FooterAddress address={address} />
 				<FooterContact />
-				<FooterSocial />
+				<FooterSocial social_media={social_media}/>
 			</div>
 			<div class="row">
 				<hr class="col-md-12"/>
 			</div>
-			<FooterCopyright />
+			<FooterCopyright copyright={copyright} />
 		</div>
 	</div>
     );

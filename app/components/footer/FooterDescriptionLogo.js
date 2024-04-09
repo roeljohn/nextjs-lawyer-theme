@@ -1,9 +1,9 @@
 
-const FooterDescriptionLogo = ({  }) => {
+const FooterDescriptionLogo = ({ footer_about, footer_logo }) => {
     return (
         <div class="col-md-3">
-            <img class="img-fluid d-block mx-auto logo" src="img/logo.png"/>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            <img class="img-fluid d-block mx-auto logo" src={footer_logo}/>
+            <p>{footer_about}</p>
         </div>
     );
 };
