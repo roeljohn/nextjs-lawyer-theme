@@ -2,9 +2,11 @@ import HeaderContact from "../components/header/HeaderContact";
 import HeaderLogo from "../components/header/HeaderLogo";
 import HeaderNavigation from "../components/header/HeaderNavigation";
 import useApiStore from "../lib/store";
+import useApiStoreMenu from "../lib/storeMenus";
 
 const Header = () => {
 	const { data } = useApiStore();
+    const { menu } = useApiStoreMenu();
 	const header_logo = data?.acf?.header_logo;
     const header_contact = data?.acf?.header_contact; // Added null check
     const phone = header_contact?.phone; // Added null check
@@ -18,7 +20,7 @@ const Header = () => {
                 <span class="navbar-toggler-icon"></span>
             </button>
 			<div class="navbar-collapse collapse w-100" id="navbarsExample11">
-				<HeaderNavigation />
+				<HeaderNavigation menu_items={menu} />
 				<HeaderContact phone={phone} phone_link={phone_link} phone_icon={phone_icon}/>
 			</div>
 		</nav>
