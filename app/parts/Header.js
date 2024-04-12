@@ -2,11 +2,9 @@ import HeaderContact from "../components/header/HeaderContact";
 import HeaderLogo from "../components/header/HeaderLogo";
 import HeaderNavigation from "../components/header/HeaderNavigation";
 import useApiStore from "../lib/store";
-import useApiStoreMenu from "../lib/storeMenus";
 
 const Header = () => {
-	const { data } = useApiStore();
-    const { menu } = useApiStoreMenu();
+	const { data, menu } = useApiStore();
 	const header_logo = data?.acf?.header_logo;
     const header_contact = data?.acf?.header_contact; // Added null check
     const phone = header_contact?.phone; // Added null check

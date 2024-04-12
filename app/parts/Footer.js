@@ -12,7 +12,7 @@ import useApiStore from "../lib/store";
 
 // components/Footer.js
 const Footer = () => {
-	const { data, isLoading, error, fetchData } = useApiStore();
+	const { data } = useApiStore();
 	const footer_about = data?.acf?.footer_about;
 	const address = data?.acf?.address;
 	const social_media = data?.acf?.social_media;
