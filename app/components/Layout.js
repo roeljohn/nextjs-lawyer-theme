@@ -5,7 +5,7 @@ import Footer from "../parts/Footer";
 import Header from "../parts/Header";
 
 const Layout = ({ children }) => {
-  const { 
+	const { 
 		isLoading, 
 		error, 
 		isMenuLoading, 
@@ -14,7 +14,9 @@ const Layout = ({ children }) => {
 		errorPage, 
 			fetchData, 
 			fetchDataMenu, 
-			fetchDataPage } = useApiStore();
+			fetchDataPage,
+			fetchDataPageImage
+		} = useApiStore();
 	useEffect(() => {
 	  // Fetch data when component mounts
 	  fetchData('https://api.local/wp-json/acf/v3/options/options');
@@ -29,13 +31,13 @@ const Layout = ({ children }) => {
 	if (error || errorMenu || errorPage) {
 	  return <div>Error: {error} {errorMenu}</div>;
 	}
-  return (
-    <div>
-      <Header />
-      {children}
-      <Footer />
-    </div>
-  );
+	return (
+		<div>
+		<Header />
+		{children}
+		<Footer />
+		</div>
+	);
 };
 
 export default Layout;

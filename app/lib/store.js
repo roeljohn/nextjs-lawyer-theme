@@ -6,12 +6,15 @@ const useApiStore = create((set) => ({
   data: null,
   menu: null,
   pages: null,
+  pageImg: null,
   isLoading: false,
   error: null,
   isMenuLoading: false,
   errorMenu: null,
   isPageLoading: false,
   errorPage: null,
+  isPageImgLoading: false,
+  errorPageImg: null,
   fetchData: async (url) => {
     try {
       // Set loading state to true
@@ -82,6 +85,30 @@ const useApiStore = create((set) => ({
       // Update store with error
       // Update store with error
       set({ isPageLoading: false, errorPage: error.message });
+    }
+  },
+  fetchDataPageImage: async (url) => {
+    try {
+      // Set loading state to true
+      set({ isPageLoading: true });
+
+      // Fetch data from the API
+      const response = await fetch(url);
+
+      // Check if the response is successful
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+
+      // Parse JSON response
+      const getPageImg = await response.json();
+      const pageImg = getPageImg.guid.rendered;
+      // Update store with data
+      set({ pageImg, isPageImgLoading: false, errorPageImg: null });
+    } catch (error) {
+      // Update store with error
+      // Update store with error
+      set({ isPageImgLoading: false, errorPageImg: error.message });
     }
   },
 }));

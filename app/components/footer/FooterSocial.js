@@ -4,7 +4,7 @@ const FooterSocial = ({ social_media }) => {
             <h1>Social</h1>
             <div class="d-flex justify-content-between">
                 {social_media && social_media.map((social, index) => (
-                     <div className="pr-3">
+                     <div key={index} className="pr-3">
                         <a href="#">
                             <i className={social.social_icon}></i>
                         </a>
