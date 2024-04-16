@@ -1,16 +1,16 @@
-import Image from "next/image";
-import styles from "./page.module.css";
-import Layout from "./components/Layout";
+"use client";
 import HomeAbout from "./parts/HomeAbout";
 import HomeScheduleAppointment from "./parts/HomeScheduleAppointment";
 import HomeBanner from "./parts/HomeBanner";
+import useApiStore from "./lib/store";
 
 export default function Home() {
+  const { pages } = useApiStore();
   return (
     <div>
       <HomeBanner />
       <HomeScheduleAppointment />
-      <HomeAbout />
+      <HomeAbout pages={pages} />
     </div>
   );
 }
